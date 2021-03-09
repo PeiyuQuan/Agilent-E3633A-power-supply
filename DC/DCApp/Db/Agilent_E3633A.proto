@@ -1,0 +1,68 @@
+LOCKTimeout = 5000;
+WriteTimeout =500;
+#ReplyTimeout = 1000;
+ReadTimeout= 500;
+ExtraInput = Ignore;
+InTerminator = '\n';
+OutTerminator = '\n';
+
+#RS-232 Interface Commands
+setsystlocal  {out "SYST:LOC";}
+setsystremote {out "SYST:REM";wait 50;}
+
+#System-Related commands
+getdisplay {out "DISP?"; in "%i";}
+setdisplay {out "DISP %{OFF|ON}"; @init {out "DISP ON";}}
+
+Clearall {out "*CLS";}
+readerror {out "SYST:ERR?"; in "%s";}
+#Operationcomplete {out "*OPC?"; in "%d";}
+#setopercomp {out "*OPC";}
+
+reset {out "*RST";wait 2000;}
+
+#Output setting
+#setoutput {out "OUTP %{OFF|ON}";}
+setoutput {out "OUTP %s";}
+getoutput {out "OUTP?"; in "%i";}
+
+
+#query and set current range
+
+getcurrentmin {out "CURR? MIN"; in "%f";}
+getcurrentmax {out "CURR? MAX"; in "%f";}
+
+#query and set current
+setcurrent{out "CURR %f";}
+setcurrdir {out "CURR %{DOWN|UP}";}
+getcurrent {out "CURR?"; in "%f";}
+
+#query and set current state
+setcurrprotstate {out "CURR:PROT:STAT %{OFF|ON}"; @init {out "CURR:PROT:STAT ON";}}
+getcurrprotstate {out "CURR:PROT:STAT?"; in "%i";}
+
+#query and set current increment
+setcurrstep {out "CURR:STEP %f";}
+
+###################################
+
+#The range of VOLTage, "Low" is for 8V/20A. "High" is for 20V/10A
+getVOLTrange {out "VOLT:RANG?"; in "%{P8V|P20V}";}
+setVOLTrange {out "VOLT:RANG %{P8V|P20V}"; @init {out "VOLT:RANG P8V";}}
+
+#query and set voltage
+setvoltage{out "VOLT %f";}
+setvoltdir{out "VOLT %{UP|DOWN}";}
+getvoltage {out "VOLT?"; in "%f";}
+
+#query and set voltage increment
+setvoltstep {out "VOLT:STEP %f";}
+
+#query and set voltage range
+
+getvoltagemin {out "VOLT? MIN"; in "%f";}
+getvoltagemax {out "VOLT? MAX"; in "%f";}
+
+#query and set voltage protect state
+setvoltprotstate {out "VOLT:PROT:STAT %{OFF|ON}"; @init {out "VOLT:PROT:STAT ON";}}
+getvoltprotstate {out "VOLT:PROT:STAT?"; in "%i";}
