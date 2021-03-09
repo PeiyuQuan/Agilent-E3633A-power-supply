@@ -1,0 +1,283 @@
+record(bo, $(P)setsystlocal)
+	{
+		field(DESC, "Local")
+		field(DTYP, "stream")
+		field(OUT,"@Agilent_E3633A.proto setsystlocal $(PORT)")
+	}
+	
+record(bo, $(P)setsystremote)
+	{
+		field(DESC, "remote")
+		field(DTYP, "stream")
+		field(OUT,"@Agilent_E3633A.proto setsystremote $(PORT)")
+		field(PINI, "YES")
+	}
+
+
+record(bo, $(P)RESET)
+	{
+		field(DESC, "Reset command")
+		field(DTYP, "stream")
+		field(OUT,"@Agilent_E3633A.proto reset $(PORT)")
+		field(FLNK,"$(P)update")
+	}
+
+record(bo, $(P)Clearall)
+	{
+		field(DESC, "clear all command")
+		field(DTYP, "stream")
+		field(OUT, "@Agilent_E3633A.proto Clearall $(PORT)")
+	}
+
+record (fanout, $(P)update)
+	{
+		field(DESC, "Update all settings")
+		field(LNK1, "$(P)setdisplay")
+		field(LNK2, "$(P)setcurrent")
+		field(LNK3, "$(P)setcurrstep")
+		field(LNK4, "$(P)setcurrprotstate")
+		field(LNK5, "$(P)setvoltage")
+		field(FLNK, "$(P)update_1")
+	}
+
+record (fanout, $(P)update_1)
+	{
+		field(DESC, "Update all settings")
+		field(LNK1, "$(P)setvoltstep")
+		field(LNK2, "$(P)setvoltprotstate")
+	}
+
+record (mbbo, $(P)setoutput)
+	{
+		field(DTYP,"stream")
+		field(OUT,"@Agilent_E3633A.proto setoutput $(PORT)")
+		field(ZRST, "OFF")
+		field(ONST, "ON")
+		field(ZRVL, "0")
+		field(ONVL, "1")
+		field(FLNK, "$(P)getoutput")
+	}	
+	
+record (mbbi, $(P)getoutput)
+	{
+		field(DTYP,"stream")
+		field(INP,"@Agilent_E3633A.proto getoutput $(PORT)")
+		field(SCAN,"1 second")
+		field(ZRST, "OFF")
+		field(ONST, "ON")
+		field(ZRVL, "0")
+		field(ONVL, "1")
+	}
+		
+	
+record (ai, $(P)getcurrentmin)
+	{
+		field(DTYP,"stream")
+		field(INP,"@Agilent_E3633A.proto getcurrentmin $(PORT)")
+		field(SCAN,"1 second")
+		field(EGU,"amps")
+		field(PREC,"3")
+	}
+	
+	
+record (ai, $(P)getcurrentmax)
+	{
+		field(DTYP,"stream")
+		field(INP,"@Agilent_E3633A.proto getcurrentmax $(PORT)")
+		field(SCAN,"1 second")
+		field(EGU,"amps")
+		field(PREC,"3")
+	}
+
+	
+record (mbbo, $(P)setdisplay)
+	{
+		field(DTYP,"stream")
+		field(OUT,"@Agilent_E3633A.proto setdisplay $(PORT)")
+		field(ZRST, "OFF")
+		field(ONST, "ON")
+		field(ZRVL, "0")
+		field(ONVL, "1")
+		field(FLNK, "$(P)getdisplay")
+	}	
+	
+record (mbbi, $(P)getdisplay)
+	{
+		field(DTYP,"stream")
+		field(INP,"@Agilent_E3633A.proto getdisplay $(PORT)")
+		field(SCAN,"1 second")
+		field(ZRST, "OFF")
+		field(ONST, "ON")
+		field(ZRVL, "0")
+		field(ONVL, "1")
+	}
+	
+record (bi, $(P)getVOLTrange)
+	{
+		field(DTYP,"stream")
+		field(INP,"@Agilent_E3633A.proto getVOLTrange $(PORT)")
+		field(SCAN,"1 second")
+		field(ZNAM,"P8V")
+		field(ONAM,"P20V")
+	}
+	
+	
+record (ai, $(P)getvoltagemin)
+	{
+		field(DTYP,"stream")
+		field(INP,"@Agilent_E3633A.proto getvoltagemin $(PORT)")
+		field(SCAN,"1 second")
+		field(EGU, "volts")
+		field(PREC,"3")
+	}
+	
+	
+record (ai, $(P)getvoltagemax)
+	{
+		field(DTYP,"stream")
+		field(INP,"@Agilent_E3633A.proto getvoltagemax $(PORT)")
+		field(SCAN,"1 second")
+		field(EGU, "volts")
+		field(PREC,"3")
+	}
+	
+record (bo, $(P)setVOLTrange)
+	{
+		field(DTYP,"stream")
+		field(OUT,"@Agilent_E3633A.proto setVOLTrange $(PORT)")
+		field(ZNAM,"P8V")
+		field(ONAM,"P20V")
+	}
+
+record(stringin, "$(P)readerror") 
+	{
+		field(DESC, "Read error queue")
+		field(DTYP, "stream")
+		field(INP, "@Agilent_E3633A.proto readerror $(PORT)")
+		field(SCAN,"1 second")
+	}
+
+
+record (ai, $(P)getcurrent)
+	{
+		field(DTYP,"stream")
+		field(INP,"@Agilent_E3633A.proto getcurrent $(PORT)")
+		field(SCAN,"1 second")
+		field(EGU,"amps")
+		field(PREC,"3")
+		field(DESC,"current")
+	}
+
+record (ao, $(P)setcurrent) 
+	{
+		field(DTYP,"stream")
+		field(DESC, "current")
+		field(OUT,"@Agilent_E3633A.proto setcurrent $(PORT)")
+        field(EGU,"amps")
+		field(PREC,"3")
+	}
+
+
+record (mbbo, $(P)setcurrdir)
+    {
+		field(DTYP,"stream")
+		field(OUT,"@Agilent_E3633A.proto setcurrdir $(PORT)")
+		field(ZRVL,"0")
+		field(ONVL,"1")
+		field(ZRST,"DOWN")
+		field(ONST,"UP")
+	}
+
+record (ao, $(P)setcurrstep) 
+	{
+		field(DTYP,"stream")
+		field(OUT,"@Agilent_E3633A.proto setcurrstep $(PORT)")
+		field(EGU,"amps")
+		field(PREC,"3")
+	}
+
+
+record (mbbo, $(P)setcurrprotstate)
+	{
+		field(DTYP,"stream")
+		field(OUT,"@Agilent_E3633A.proto setcurrprotstate $(PORT)")
+		field(ZRST, "OFF")
+		field(ONST, "ON")
+		field(ZRVL, "0")
+		field(ONVL, "1")
+		field(FLNK, "$(P)getcurrprotstate")
+	}	
+	
+record (mbbi, $(P)getcurrprotstate)
+	{
+		field(DTYP,"stream")
+		field(ZRST, "OFF")
+		field(ONST, "ON")
+		field(ZRVL, "0")
+		field(ONVL, "1")
+		field(INP,"@Agilent_E3633A.proto getcurrprotstate $(PORT)")
+	}
+
+
+
+##################################################
+
+record (ai, $(P)getvoltage)
+	{
+		field(DTYP,"stream")
+		field(INP,"@Agilent_E3633A.proto getvoltage $(PORT)")
+		field(EGU,"volts")
+		field(SCAN,"1 second")
+		field(PREC,"3")
+		field(DESC,"voltage")
+	}
+
+record (mbbo, $(P)setvoltdir)
+    {
+		field(DTYP,"stream")
+		field(OUT,"@Agilent_E3633A.proto setvoltdir $(PORT)")
+		field(ZRVL,"0")
+		field(ONVL,"1")
+		field(ZRST,"DOWN")
+		field(ONST,"UP")
+	}
+	
+record (ao, $(P)setvoltage) 
+	{
+		field(DTYP,"stream")
+		field(OUT,"@Agilent_E3633A.proto setvoltage $(PORT)")
+		field(EGU,"volts")
+		field(PREC,"3")
+	}
+
+
+record (ao, $(P)setvoltstep) 
+	{
+		field(DTYP,"stream")
+		field(OUT,"@Agilent_E3633A.proto setvoltstep $(PORT)")
+		field(EGU,"volts")
+		field(PREC,"3")
+	}
+
+record (mbbo, $(P)setvoltprotstate)
+	{
+		field(DTYP,"stream")
+		field(OUT,"@Agilent_E3633A.proto setvoltprotstate $(PORT)")
+		field(ZRST, "OFF")
+		field(ONST, "ON")
+		field(ZRVL, "0")
+		field(ONVL, "1")
+		field(FLNK, "$(P)getvoltprotstate")
+	}	
+	
+record (mbbi, $(P)getvoltprotstate)
+	{
+		field(DTYP,"stream")
+		field(INP,"@Agilent_E3633A.proto getvoltprotstate $(PORT)")
+		field(SCAN,"1 second")
+		field(ZRST, "OFF")
+		field(ONST, "ON")
+		field(ZRVL, "0")
+		field(ONVL, "1")
+	}
+
