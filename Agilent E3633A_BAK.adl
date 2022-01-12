@@ -1,0 +1,1165 @@
+
+file {
+	name="C:\epics\adls\Agilent E3633A.adl"
+	version=030109
+}
+display {
+	object {
+		x=958
+		y=442
+		width=600
+		height=400
+	}
+	clr=14
+	bclr=4
+	cmap=""
+	gridSpacing=5
+	gridOn=0
+	snapToGrid=0
+}
+"color map" {
+	ncolors=65
+	colors {
+		ffffff,
+		ececec,
+		dadada,
+		c8c8c8,
+		bbbbbb,
+		aeaeae,
+		9e9e9e,
+		919191,
+		858585,
+		787878,
+		696969,
+		5a5a5a,
+		464646,
+		2d2d2d,
+		000000,
+		00d800,
+		1ebb00,
+		339900,
+		2d7f00,
+		216c00,
+		fd0000,
+		de1309,
+		be190b,
+		a01207,
+		820400,
+		5893ff,
+		597ee1,
+		4b6ec7,
+		3a5eab,
+		27548d,
+		fbf34a,
+		f9da3c,
+		eeb62b,
+		e19015,
+		cd6100,
+		ffb0ff,
+		d67fe2,
+		ae4ebc,
+		8b1a96,
+		610a75,
+		a4aaff,
+		8793e2,
+		6a73c1,
+		4d52a4,
+		343386,
+		c7bb6d,
+		b79d5c,
+		a47e3c,
+		7d5627,
+		58340f,
+		99ffff,
+		73dfff,
+		4ea5f9,
+		2a63e4,
+		0a00b8,
+		ebf1b5,
+		d4db9d,
+		bbc187,
+		a6a462,
+		8b8239,
+		73ff6b,
+		52da3b,
+		3cb420,
+		289315,
+		1a7309,
+	}
+}
+polyline {
+	object {
+		x=300
+		y=30
+		width=0
+		height=250
+	}
+	"basic attribute" {
+		clr=14
+	}
+	points {
+		(300,30)
+		(300,280)
+	}
+}
+text {
+	object {
+		x=200
+		y=11
+		width=200
+		height=20
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Agilent_E3633A power supply"
+}
+"message button" {
+	object {
+		x=50
+		y=300
+		width=50
+		height=25
+	}
+	control {
+		chan="$(P)setsystremote"
+		clr=14
+		bclr=45
+	}
+	label="1"
+}
+polyline {
+	object {
+		x=0
+		y=280
+		width=600
+		height=0
+	}
+	"basic attribute" {
+		clr=14
+	}
+	"dynamic attribute" {
+		chan="$(P)setsystremote"
+	}
+	points {
+		(0,280)
+		(600,280)
+	}
+}
+"message button" {
+	object {
+		x=50
+		y=340
+		width=50
+		height=25
+	}
+	control {
+		chan="$(P)setsystlocal"
+		clr=14
+		bclr=45
+	}
+	label="1"
+}
+"message button" {
+	object {
+		x=260
+		y=290
+		width=50
+		height=25
+	}
+	control {
+		chan="$(P)RESET"
+		clr=14
+		bclr=45
+	}
+	label="reset"
+}
+"choice button" {
+	object {
+		x=150
+		y=340
+		width=70
+		height=30
+	}
+	control {
+		chan="$(P)setdisplay"
+		clr=14
+		bclr=45
+	}
+	stacking="column"
+}
+text {
+	object {
+		x=125
+		y=290
+		width=100
+		height=22
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Display"
+	align="horiz. centered"
+}
+polyline {
+	object {
+		x=110
+		y=280
+		width=0
+		height=121
+	}
+	"basic attribute" {
+		clr=14
+	}
+	points {
+		(110,280)
+		(110,401)
+	}
+}
+polyline {
+	object {
+		x=250
+		y=280
+		width=0
+		height=117
+	}
+	"basic attribute" {
+		clr=14
+	}
+	points {
+		(250,280)
+		(250,397)
+	}
+}
+text {
+	object {
+		x=100
+		y=35
+		width=100
+		height=20
+	}
+	"basic attribute" {
+		clr=60
+	}
+	textix="Voltage"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=400
+		y=35
+		width=100
+		height=20
+	}
+	"basic attribute" {
+		clr=60
+	}
+	textix="Current"
+	align="horiz. centered"
+}
+"text update" {
+	object {
+		x=125
+		y=100
+		width=100
+		height=25
+	}
+	monitor {
+		chan="$(P)getvoltage"
+		clr=14
+		bclr=30
+	}
+	limits {
+	}
+}
+text {
+	object {
+		x=250
+		y=100
+		width=50
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Volts"
+	align="horiz. centered"
+}
+"text update" {
+	object {
+		x=425
+		y=100
+		width=100
+		height=25
+	}
+	monitor {
+		chan="$(P)getcurrent"
+		clr=14
+		bclr=30
+	}
+	limits {
+	}
+}
+text {
+	object {
+		x=540
+		y=60
+		width=50
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Amps"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=540
+		y=100
+		width=50
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Amps"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=250
+		y=60
+		width=50
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Volts"
+	align="horiz. centered"
+}
+"text update" {
+	object {
+		x=480
+		y=370
+		width=100
+		height=25
+	}
+	monitor {
+		chan="$(P)readerror"
+		clr=14
+		bclr=30
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+text {
+	object {
+		x=490
+		y=350
+		width=80
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Error"
+	align="horiz. centered"
+}
+polyline {
+	object {
+		x=450
+		y=280
+		width=0
+		height=118
+	}
+	"basic attribute" {
+		clr=14
+	}
+	"dynamic attribute" {
+		chan="$(P)readerror"
+	}
+	points {
+		(450,280)
+		(450,398)
+	}
+}
+text {
+	object {
+		x=30
+		y=230
+		width=62
+		height=20
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Voltage"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=30
+		y=240
+		width=60
+		height=22
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Protection"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=30
+		y=250
+		width=70
+		height=20
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Status"
+	align="horiz. centered"
+}
+"text update" {
+	object {
+		x=115
+		y=240
+		width=80
+		height=20
+	}
+	monitor {
+		chan="$(P)getvoltprotstate"
+		clr=14
+		bclr=30
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"choice button" {
+	object {
+		x=230
+		y=230
+		width=40
+		height=45
+	}
+	control {
+		chan="$(P)setvoltprotstate"
+		clr=14
+		bclr=45
+	}
+}
+text {
+	object {
+		x=330
+		y=230
+		width=50
+		height=20
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Current"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=330
+		y=240
+		width=60
+		height=20
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Protection"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=330
+		y=250
+		width=56
+		height=20
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Status"
+	align="horiz. centered"
+}
+"choice button" {
+	object {
+		x=510
+		y=230
+		width=40
+		height=45
+	}
+	control {
+		chan="$(P)setcurrprotstate"
+		clr=14
+		bclr=45
+	}
+}
+"text update" {
+	object {
+		x=410
+		y=240
+		width=80
+		height=20
+	}
+	monitor {
+		chan="$(P)getcurrprotstate"
+		clr=14
+		bclr=30
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+text {
+	object {
+		x=260
+		y=334
+		width=60
+		height=26
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Voltage range"
+}
+text {
+	object {
+		x=269
+		y=370
+		width=71
+		height=20
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Set range"
+}
+"text update" {
+	object {
+		x=355
+		y=328
+		width=88
+		height=25
+	}
+	monitor {
+		chan="$(P)getVOLTrange"
+		clr=14
+		bclr=45
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"choice button" {
+	object {
+		x=346
+		y=363
+		width=87
+		height=28
+	}
+	control {
+		chan="$(P)setVOLTrange"
+		clr=14
+		bclr=45
+	}
+	stacking="column"
+}
+composite {
+	object {
+		x=95
+		y=57
+		width=135
+		height=32
+	}
+	"composite name"=""
+	children {
+		"text entry" {
+			object {
+				x=125
+				y=60
+				width=100
+				height=25
+			}
+			control {
+				chan="$(P)setvoltage"
+				clr=14
+				bclr=30
+			}
+			limits {
+			}
+		}
+		rectangle {
+			object {
+				x=120
+				y=57
+				width=110
+				height=32
+			}
+			"basic attribute" {
+				clr=20
+				fill="outline"
+				width=4
+			}
+		}
+		text {
+			object {
+				x=95
+				y=65
+				width=20
+				height=20
+			}
+			"basic attribute" {
+				clr=20
+			}
+			textix="SET"
+		}
+	}
+}
+composite {
+	object {
+		x=395
+		y=56
+		width=134
+		height=34
+	}
+	"composite name"=""
+	children {
+		"text entry" {
+			object {
+				x=423
+				y=60
+				width=100
+				height=25
+			}
+			control {
+				chan="$(P)setcurrent"
+				clr=14
+				bclr=30
+			}
+			limits {
+			}
+		}
+		rectangle {
+			object {
+				x=418
+				y=56
+				width=111
+				height=34
+			}
+			"basic attribute" {
+				clr=20
+				fill="outline"
+				width=4
+			}
+		}
+		text {
+			object {
+				x=395
+				y=65
+				width=20
+				height=20
+			}
+			"basic attribute" {
+				clr=20
+			}
+			textix="SET"
+		}
+	}
+}
+"text entry" {
+	object {
+		x=10
+		y=75
+		width=60
+		height=30
+	}
+	control {
+		chan="$(P)setvoltMINvalue.ZNAM"
+		clr=14
+		bclr=45
+	}
+	limits {
+	}
+}
+text {
+	object {
+		x=11
+		y=55
+		width=70
+		height=15
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Minimum"
+}
+text {
+	object {
+		x=11
+		y=45
+		width=74
+		height=13
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Voltage"
+}
+text {
+	object {
+		x=12
+		y=120
+		width=65
+		height=15
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Voltage"
+}
+text {
+	object {
+		x=10
+		y=135
+		width=59
+		height=15
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Maximum"
+}
+"text entry" {
+	object {
+		x=12
+		y=155
+		width=60
+		height=30
+	}
+	control {
+		chan="$(P)setvoltMAXvalue"
+		clr=14
+		bclr=45
+	}
+	limits {
+	}
+}
+text {
+	object {
+		x=310
+		y=45
+		width=76
+		height=19
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Current"
+}
+text {
+	object {
+		x=310
+		y=55
+		width=62
+		height=19
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Minimum"
+}
+polyline {
+	object {
+		x=85
+		y=50
+		width=0
+		height=150
+	}
+	"basic attribute" {
+		clr=14
+	}
+	points {
+		(85,50)
+		(85,200)
+	}
+}
+"text entry" {
+	object {
+		x=310
+		y=75
+		width=60
+		height=30
+	}
+	control {
+		chan="$(P)setcurrMINvalue"
+		clr=14
+		bclr=45
+	}
+	limits {
+	}
+}
+text {
+	object {
+		x=309
+		y=120
+		width=58
+		height=17
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Current"
+}
+text {
+	object {
+		x=311
+		y=135
+		width=58
+		height=17
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Maximum"
+}
+"text entry" {
+	object {
+		x=309
+		y=155
+		width=60
+		height=30
+	}
+	control {
+		chan="$(P)setcurrMAXvalue"
+		clr=14
+		bclr=45
+	}
+	limits {
+	}
+}
+polyline {
+	object {
+		x=380
+		y=50
+		width=0
+		height=150
+	}
+	"basic attribute" {
+		clr=14
+	}
+	"dynamic attribute" {
+		chan="$(P)setvoltdir.ZRST"
+	}
+	points {
+		(380,50)
+		(380,200)
+	}
+}
+text {
+	object {
+		x=458
+		y=294
+		width=65
+		height=24
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="OUTPUT"
+	align="horiz. centered"
+}
+"text update" {
+	object {
+		x=519
+		y=291
+		width=69
+		height=22
+	}
+	monitor {
+		chan="$(P)getoutput"
+		clr=14
+		bclr=30
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+text {
+	object {
+		x=460
+		y=319
+		width=51
+		height=18
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="set"
+	align="horiz. centered"
+}
+"choice button" {
+	object {
+		x=505
+		y=317
+		width=79
+		height=25
+	}
+	control {
+		chan="$(P)setoutput"
+		clr=14
+		bclr=20
+	}
+	stacking="column"
+}
+polyline {
+	object {
+		x=450
+		y=347
+		width=147
+		height=0
+	}
+	"basic attribute" {
+		clr=14
+	}
+	points {
+		(450,347)
+		(597,347)
+	}
+}
+"text update" {
+	object {
+		x=138
+		y=310
+		width=88
+		height=20
+	}
+	monitor {
+		chan="$(P)getdisplay"
+		clr=13
+		bclr=30
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+text {
+	object {
+		x=3
+		y=305
+		width=40
+		height=19
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Remote"
+}
+text {
+	object {
+		x=5
+		y=342
+		width=46
+		height=24
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="Local"
+}
+"related display" {
+	object {
+		x=350
+		y=290
+		width=80
+		height=25
+	}
+	clr=14
+	bclr=25
+}
+"text entry" {
+	object {
+		x=485
+		y=170
+		width=50
+		height=30
+	}
+	control {
+		chan="$(P)setcurrstep"
+		clr=14
+		bclr=30
+	}
+	limits {
+	}
+}
+text {
+	object {
+		x=540
+		y=175
+		width=30
+		height=15
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Amps"
+	align="horiz. centered"
+}
+"message button" {
+	object {
+		x=400
+		y=170
+		width=40
+		height=30
+	}
+	control {
+		chan="$(P)setcurrdir"
+		clr=14
+		bclr=45
+	}
+	label="1"
+	press_msg="1"
+}
+"message button" {
+	object {
+		x=442
+		y=170
+		width=40
+		height=30
+	}
+	control {
+		chan="$(P)setcurrdir"
+		clr=14
+		bclr=45
+	}
+	label="0"
+	press_msg="0"
+}
+text {
+	object {
+		x=410
+		y=150
+		width=20
+		height=15
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="UP"
+}
+text {
+	object {
+		x=443
+		y=150
+		width=35
+		height=15
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Down"
+}
+composite {
+	object {
+		x=93
+		y=150
+		width=182
+		height=50
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=235
+				y=180
+				width=40
+				height=15
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Volts"
+			align="horiz. centered"
+		}
+		"text entry" {
+			object {
+				x=180
+				y=170
+				width=50
+				height=30
+			}
+			control {
+				chan="$(P)setvoltstep"
+				clr=14
+				bclr=30
+			}
+			limits {
+			}
+		}
+		"message button" {
+			object {
+				x=93
+				y=170
+				width=40
+				height=30
+			}
+			control {
+				chan="$(P)setvoltdir"
+				clr=14
+				bclr=45
+			}
+			label="1"
+			press_msg="0"
+		}
+		"message button" {
+			object {
+				x=136
+				y=170
+				width=42
+				height=30
+			}
+			control {
+				chan="$(P)setvoltdir"
+				clr=14
+				bclr=45
+			}
+			label="0"
+			press_msg="1"
+		}
+		text {
+			object {
+				x=105
+				y=150
+				width=20
+				height=15
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="UP"
+		}
+		text {
+			object {
+				x=137
+				y=150
+				width=30
+				height=15
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Down"
+		}
+	}
+}
