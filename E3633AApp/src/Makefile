@@ -53,7 +53,7 @@ E3633A_DBD += asyn.dbd
 E3633A_DBD += drvAsynIPPort.dbd
 E3633A_DBD += drvAsynSerialPort.dbd
 E3633A_DBD += calc.dbd
-E3633A_DBD += stream-scalcout.dbd
+#E3633A_DBD += stream-scalcout.dbd
 E3633A_DBD += stream.dbd
 E3633A_DBD += asSupport.dbd
 # E3633A_registerRecordDeviceDriver.cpp derives from E3633A.dbd
